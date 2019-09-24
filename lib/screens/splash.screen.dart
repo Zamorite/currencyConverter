@@ -21,18 +21,17 @@ class _SplashState extends State<Splash> {
     await Rates.getRates();
   }
 
-
   Future checkIntroSeen() async {
-
     SharedPreferences prefs = await SharedPreferences.getInstance();
     introComplete = (prefs.getBool('seenIntro') ?? false);
-    
 
     if (!introComplete) {
       prefs.setBool('seenIntro', true);
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Intros()));      
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => Intros()));
     } else {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));      
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => HomeScreen()));
     }
   }
 
@@ -44,21 +43,21 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-
     checkIntroSeen();
-    
+
     return SafeArea(
       child: SplashScreen(
-          seconds: 14,
-          title: new Text(
-            'Currency Converter',
-            style: kTopCurrencyTextStyle,
-          ),
-          image: new Image.asset('assets/images/intro_img_1.png'),
-          backgroundColor: kRed,
-          styleTextUnderTheLoader: new TextStyle(),
-          photoSize: 100.0,
-          loaderColor: kWhite),
+        seconds: 14,
+        title: new Text(
+          'Currency Converter',
+          style: kTopCurrencyTextStyle,
+        ),
+        image: new Image.asset('assets/images/intro_img_1.png'),
+        backgroundColor: kRed,
+        styleTextUnderTheLoader: new TextStyle(),
+        photoSize: 100.0,
+        loaderColor: kWhite,
+      ),
     );
   }
 }
