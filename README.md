@@ -1,4 +1,4 @@
-# currency_converter
+# Currency Converter
 
 A demo app for exhibition at Aptech Career Quest
 
